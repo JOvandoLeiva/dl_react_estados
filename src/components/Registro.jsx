@@ -10,8 +10,8 @@ const Registro = () => {
     const icons = 
     [
         <FontAwesomeIcon icon={faFacebook} size="2xl" />,
-        <FontAwesomeIcon icon={faLinkedin} size="2xl"/>,
-        <FontAwesomeIcon icon={faGithub} size="2xl"/>
+        <FontAwesomeIcon icon={faGithub} size="2xl"/>,
+        <FontAwesomeIcon icon={faLinkedin} size="2xl"/>
     ]
    /* console.log(icons)*/
     return (
