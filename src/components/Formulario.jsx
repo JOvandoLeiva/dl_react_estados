@@ -40,14 +40,14 @@ const Login = () => {
     return (
 
             
-        <div className="container  mx-auto">
-            <header className="h1">Crea una cuenta</header>
+        <div className="pb-4 pt-4 mx-auto">
+            <header className="h1 p-2">Crea una cuenta</header>
 
               <Registro />
-          <form onSubmit={validar}>
+          <form className="p-3" onSubmit={validar}>
           
-              <div className="col-10  mx-auto">
-            
+              <div className="col-10 mx-auto">
+                  <p>o usa tu email para registrarte</p>
                 <input type="text" placeholder="Nombre" value={personita.nombre} className="form-control m-2" htmlFor="nombre"  id="nombre"  onChange={(e)=> inputHandler("nombre",e.target.value)}/>
                 </div>
                 <div className="col-10  mx-auto">

@@ -9,13 +9,13 @@ const Registro = () => {
   
     const icons = 
     [
-        <FontAwesomeIcon icon={faFacebook} size="lg" />,
-        <FontAwesomeIcon icon={faLinkedin} size="lg"/>,
-        <FontAwesomeIcon icon={faGithub} size="lg"/>
+        <FontAwesomeIcon icon={faFacebook} size="2xl" />,
+        <FontAwesomeIcon icon={faLinkedin} size="2xl"/>,
+        <FontAwesomeIcon icon={faGithub} size="2xl"/>
     ]
    /* console.log(icons)*/
     return (
-       <div>
+       <div className="">
         
         <SocialMedia icons={icons}/>
         
