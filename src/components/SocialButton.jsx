@@ -1,23 +1,21 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
-
-const socialMedia = (url) => {
+const SocialMedia = ({icons}) => {
   
+    const fabi = url => <FontAwesomeIcon icon={`fa-brands fa-${url}`} />
     return (
         <div className="container">
-        <div class="row align-items-center">
-        <div class="col">
-        <i class="fa-brands fa-facebook"></i>
-        </div>
-        <div class="col">
-        <i class="fa-brands fa-github"></i>
-        
-        </div>
-        <div class="col">
-            Una de tres columnas
-        </div>
-        </div>
+            <div className="row align-items-center">
+                {
+                    icons.map((item,i) => (
+                        <div className="col" key={`row-${i}`}>
+                            {item}
+                        </div>
+                    ))
+                }
+            </div>
        </div>
     )
 }
-export default socialMedia;
+export default SocialMedia;

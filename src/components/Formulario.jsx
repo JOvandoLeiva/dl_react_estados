@@ -1,21 +1,29 @@
 import React, { useState } from "react";
-import socialMedia from "./SocialButton";
+import Registro from "./Registro";
 
-const Login = ( {onSubmit}) => {
+const Login = () => {
 
-    const [error, setError] = useState(false)
+    const [error, setError] = useState("")
 
     const [personita, setPersonita] = useState({nombre:"",email:"",pass1:"",pass2:""})
  
     const validar = (e) => {
       e.preventDefault()
       
-      if (!email.trim() || !password2.trim() || !password.trim() || !nombre.trim())
+      if (!personita.email.trim() || !personita.pass1.trim() || !personita.pass2.trim() || !personita.nombre.trim())
       {
-        setError(true);
-        return;
+        return setError("todos los campos deben estar completos") 
+       
       }
-      setError(false);
+
+      if(personita.pass1 !== personita.pass2)
+      {
+        return setError("Las contraseñas no coinciden")
+      }
+
+      setError("Registrado")
+      setPersonita({nombre:"",email:"",pass1:"",pass2:""})
+     
     }
 
     const inputHandler = (field,value) => {
@@ -35,28 +43,28 @@ const Login = ( {onSubmit}) => {
         <div className="container  mx-auto">
             <header className="h1">Crea una cuenta</header>
 
+              <Registro />
           <form onSubmit={validar}>
           
-    
               <div className="col-10  mx-auto">
             
-                <input type="text" placeholder="Nombre" className="form-control m-2" htmlFor="nombre"  id="nombre"  onChange={(e)=> inputHandler("nombre",e.target.value)}/>
+                <input type="text" placeholder="Nombre" value={personita.nombre} className="form-control m-2" htmlFor="nombre"  id="nombre"  onChange={(e)=> inputHandler("nombre",e.target.value)}/>
                 </div>
                 <div className="col-10  mx-auto">
-                
-                <input type="email" placeholder="tuemail@ejemplo.com" className="form-control m-2" htmlFor="email"  id="email"  onChange={(e)=>inputHandler("email",e.target.value)}/>
+                 
+                <input type="email" placeholder="tuemail@ejemplo.com" value={personita.email} className="form-control m-2" htmlFor="email"  id="email"  onChange={(e)=>inputHandler("email",e.target.value)}/>
                 </div>
                <div className="col-10  mx-auto">            
-                   <input type="password" className="form-control m-2"  htmlFor="password" id="password1" placeholder="Contraseña" onChange={(p)=>inputHandler("pass1",p.target.value)}/>
+                   <input type="password" className="form-control m-2" value={personita.pass1} htmlFor="password" id="password1" placeholder="Contraseña" onChange={(p)=>inputHandler("pass1",p.target.value)}/>
                   
                </div>
                     <div className="col-10  mx-auto">             
-                        <input type="password" className="form-control m-2"  htmlFor="password" id="password2" placeholder="Confirma tu contraseña" onChange={(p)=>inputHandler("pass2",p.target.value)}/>
+                        <input type="password" className="form-control m-2" value={personita.pass2} htmlFor="password" id="password2" placeholder="Confirma tu contraseña" onChange={(p)=>inputHandler("pass2",p.target.value)}/>
                     </div>
                    <div className="d-grid col-10  mx-auto">
                      <button type="submit" className="btn btn-success">Registrarse</button>
                   </div>
-                  <div>{error ? <p>todos los campos deben estar completos</p> : null }</div>
+                  <div>{error.length > 0 ? <p>{error}</p> : null }</div>
                </form>
          </div>
             )
