@@ -3,7 +3,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 const SocialMedia = ({icons}) => {
   
-    const fabi = url => <FontAwesomeIcon icon={`fa-brands fa-${url}`} />
     return (
         <div className="container">
             <div className="row align-items-center">
